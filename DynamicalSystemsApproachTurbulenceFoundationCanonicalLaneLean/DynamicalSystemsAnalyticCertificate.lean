@@ -1,0 +1,23 @@
+import DynamicalSystemsApproachTurbulenceFoundationCanonicalLaneLean.DynamicalSystemsAnalyticObjects
+
+namespace HautevilleHouse
+namespace DynamicalSystemsApproachTurbulenceFoundationCanonicalLaneLean
+
+structure DynamicalSystemsAnalyticCertificate where
+  operatorsClosed : Prop
+  operatorsClosedProof : operatorsClosed
+
+def sourceDynamicalSystemsAnalyticCertificate : DynamicalSystemsAnalyticCertificate := {
+  operatorsClosed := TurbulenceEquationClosed primitiveTurbulentSolution
+  operatorsClosedProof := primitive_turbulence_equation_closed_checked
+}
+
+def DynamicalSystemsAnalyticCertificateClosed (C : DynamicalSystemsAnalyticCertificate) : Prop :=
+  C.operatorsClosed
+
+theorem source_dynamical_systems_analytic_certificate_closed :
+    DynamicalSystemsAnalyticCertificateClosed sourceDynamicalSystemsAnalyticCertificate := by
+  exact sourceDynamicalSystemsAnalyticCertificate.operatorsClosedProof
+
+end DynamicalSystemsApproachTurbulenceFoundationCanonicalLaneLean
+end HautevilleHouse
